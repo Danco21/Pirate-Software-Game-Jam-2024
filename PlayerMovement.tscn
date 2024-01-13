@@ -35,7 +35,7 @@ shape = SubResource("RectangleShape2D_fkqmu")
 zoom = Vector2(0.5, 0.5)
 position_smoothing_speed = 2.0
 
-[node name="ProgressBar" type="ProgressBar" parent="CharacterBody2D"]
+[node name="ProgressBar" type="ProgressBar" parent="."]
 z_index = 1
 offset_left = -113.0
 offset_top = -82.0
