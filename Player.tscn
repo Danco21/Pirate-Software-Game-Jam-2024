@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://vdkhyema4tcy"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4ghig"]
+[ext_resource type="Script" path="res://Player_movement.gd" id="1_4ghig"]
 [ext_resource type="Texture2D" uid="uid://bu3i6jqsvpgda" path="res://icon.svg" id="2_ymyka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkqmu"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_4ghig")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
