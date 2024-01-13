@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://5uatkiiwr5sv"]
+[gd_scene load_steps=3 format=3 uid="uid://5uatkiiwr5sv"]
 
 [ext_resource type="Script" path="res://Node2D.gd" id="1_nf06n"]
 
-[node name="Signal" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ci733"]
+
+[node name="Signal" type="Node2D" groups=["signal"]]
 texture_filter = 2
 script = ExtResource("1_nf06n")
+
+[node name="Area2D" type="Area2D" parent="." groups=["signal"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ci733")
+one_way_collision_margin = 0.0
+debug_color = Color(0.690196, 0.117647, 0.290196, 1)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
