@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpitumb2jflf4"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_0557c"]
+[ext_resource type="Texture2D" uid="uid://dyy1kjfyjkr4y" path="res://icon.svg" id="2_83ky0"]
+[ext_resource type="Texture2D" uid="uid://541s4nxtu3xa" path="res://Art for Demo/Circle.png" id="3_251ad"]
+[ext_resource type="Script" path="res://Sprite2D.gd" id="4_cltva"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2n7s"]
+radius = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dukv"]
+size = Vector2(119, 117)
+
+[node name="Node" type="Node2D"]
+
+[node name="Core" type="Node2D" parent="."]
+position = Vector2(811, 378)
+
+[node name="Sprite2D" type="Sprite2D" parent="Core"]
+texture = ExtResource("3_251ad")
+script = ExtResource("4_cltva")
+
+[node name="Area2D" type="Area2D" parent="Core"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Core/Area2D" groups=["core"]]
+shape = SubResource("CircleShape2D_w2n7s")
+
+[node name="Core2" type="Node2D" parent="."]
+position = Vector2(54, 377)
+
+[node name="Sprite2D" type="Sprite2D" parent="Core2"]
+texture = ExtResource("3_251ad")
+script = ExtResource("4_cltva")
+
+[node name="Area2D" type="Area2D" parent="Core2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Core2/Area2D" groups=["core"]]
+shape = SubResource("CircleShape2D_w2n7s")
+
+[node name="Core3" type="Node2D" parent="."]
+position = Vector2(405, 88)
+
+[node name="Sprite2D" type="Sprite2D" parent="Core3"]
+texture = ExtResource("3_251ad")
+script = ExtResource("4_cltva")
+
+[node name="Area2D" type="Area2D" parent="Core3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Core3/Area2D" groups=["core"]]
+shape = SubResource("CircleShape2D_w2n7s")
+
+[node name="Core4" type="Node2D" parent="."]
+position = Vector2(248, 548)
+
+[node name="Sprite2D" type="Sprite2D" parent="Core4"]
+texture = ExtResource("3_251ad")
+script = ExtResource("4_cltva")
+
+[node name="Area2D" type="Area2D" parent="Core4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Core4/Area2D" groups=["core"]]
+shape = SubResource("CircleShape2D_w2n7s")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(72, 70)
+script = ExtResource("1_0557c")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_83ky0")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_8dukv")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-72, -70)
+zoom = Vector2(0.5, 0.5)
+
+[connection signal="area_entered" from="Core/Area2D" to="Core/Sprite2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Core2/Area2D" to="Core2/Sprite2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Core3/Area2D" to="Core3/Sprite2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Core4/Area2D" to="Core4/Sprite2D" method="_on_area_2d_area_entered"]
