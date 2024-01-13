@@ -23,3 +23,4 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+	look_at(get_global_mouse_position())
